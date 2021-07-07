@@ -1,0 +1,27 @@
+<h3>Registered Users</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Username</th>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Title</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngIf="(users$ | async)!.length === 0">
+      <td colspan="5">
+        There are no registered users.
+      </td>
+    </tr>
+    <tr *ngFor="let user of users$ | async">
+      <td>{{user.id}}</td>
+      <td>{{user.username}}</td>
+      <td>{{user.firstName}}</td>
+      <td>{{user.lastName}}</td>
+      <td>{{user.title}}</td>
+    </tr>
+  </tbody>
+</table>
