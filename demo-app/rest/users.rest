@@ -1,0 +1,23 @@
+
+
+GET http://student1.databots.cloud/colors HTTP/1.1
+
+###
+
+POST http://student1.databots.cloud/users/username_available HTTP/1.1
+Content-Type: application/json
+
+{
+  "username": "bob",
+  "kind": "employee"
+}
+
+###
+
+POST http://student1.databots.cloud/users/username_available HTTP/1.1
+Content-Type: application/json
+
+{
+  "username": "afuller",
+  "kind": "employee"
+}

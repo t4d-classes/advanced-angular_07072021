@@ -1,3 +1,11 @@
 form > label {
     display: block;
 }
+
+.error { 
+  color: red;
+}
+
+form.submitted input.ng-invalid {
+  border: 1px solid red;
+}

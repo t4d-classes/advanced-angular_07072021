@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, Observable } from 'rxjs';
 
 import { User, NewUser } from '../models/users';
@@ -10,7 +11,7 @@ export class UserAccountsService {
 
   private users = new BehaviorSubject<User[]>([]);
 
-  constructor() { }
+  constructor(private httpClient: HttpClient) { }
 
   all() {
     return this.users;
@@ -29,5 +30,14 @@ export class UserAccountsService {
     ];
 
     this.users.next(users);
+  }
+
+  public usernameAvailable(username: string) {
+
+    const url = "http://student1.databots.cloud/users/username_available"
+
+    return this.httpClient.post<boolean>(url, {
+      username, kind: 'employee'
+    });
   }
 }
