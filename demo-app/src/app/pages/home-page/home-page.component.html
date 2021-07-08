@@ -6,4 +6,12 @@
   </li>
 </ul>
 
+<button type="button" (click)="doRefreshCategories()">
+  Refresh
+</button>
 
+<app-category-list [categories]="categories"></app-category-list>
+
+
+<app-category-form
+  (submitForm)="doAddAndRefreshCategories($event)"></app-category-form>

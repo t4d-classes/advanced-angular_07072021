@@ -1,0 +1,14 @@
+<h3>Category Form</h3>
+
+<form [formGroup]="categoryForm">
+
+  <label>
+    Name
+    <input type="text" formControlName="categoryName" />
+  </label>
+  <label>
+    Description
+    <textarea formControlName="description"></textarea>
+  </label>
+  <button (click)="doSubmitForm()">Submit</button>
+</form>

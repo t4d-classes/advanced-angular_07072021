@@ -3,6 +3,9 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { AllowedRolesGuardService } from './user-accounts/services/allowed-roles-guard.service';
 import { LoggedInGuardService } from './user-accounts/services/logged-in-guard.service';
+
+import { CategoriesResolverService } from './categories/services/categories-resolver.service';
+
 import { HomePageComponent } from './pages/home-page/home-page.component';
 import { LoginPageComponent } from './pages/login-page/login-page.component';
 import { UserAccountPageComponent } from './pages/user-account-page/user-account-page.component';
@@ -12,6 +15,7 @@ const routes: Routes = [
     path: "home",
     component: HomePageComponent,
     canActivate: [LoggedInGuardService],
+    resolve: { categories: CategoriesResolverService },
     data: {
       title: "App Home"
     },

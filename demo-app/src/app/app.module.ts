@@ -6,6 +6,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 import { UserAccountsModule } from './user-accounts/user-accounts.module';
+import { CategoriesModule } from './categories/categories.module';
+
 import { AuthorizationInterceptorService } from './user-accounts/services/authorization-interceptor.service';
 import { HomePageComponent } from './pages/home-page/home-page.component';
 import { LoginPageComponent } from './pages/login-page/login-page.component';
@@ -22,6 +24,7 @@ import { UserAccountPageComponent } from './pages/user-account-page/user-account
     BrowserModule,
     AppRoutingModule,
     UserAccountsModule,
+    CategoriesModule,
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthorizationInterceptorService, multi: true },
