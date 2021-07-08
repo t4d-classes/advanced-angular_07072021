@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 import { valueNotMatchValidator } from '../../validators/valueNotMatchValidator';
 import { UserAccountsService } from '../../services/user-accounts.service';
@@ -19,22 +20,22 @@ export class UserLoginComponent implements OnInit {
   public userLoginForm!: FormGroup;
   public errorMessage = "";
   public userLoginFormSubmitted = false;
-  public loggedIn = false;
 
   constructor(
     private fb: FormBuilder,
-    private userAccountsSvc: UserAccountsService) { }
+    private userAccountsSvc: UserAccountsService,
+    private router: Router) { }
 
   ngOnInit(): void {
     this.userLoginForm = this.fb.group({
-      username: ["", {
+      username: ["afuller", {
         validators: [
           Validators.required,
           Validators.minLength(6),
           Validators.pattern(STARTS_WITH_LETTER_AND_ONLY_LETTERS_AND_NUMBERS),
         ],
       }],
-      password: ["", {
+      password: ["testpass", {
         validators: [
           Validators.required,
           Validators.minLength(10),
@@ -111,11 +112,10 @@ export class UserLoginComponent implements OnInit {
 
     this.userAccountsSvc.login(username, password).subscribe(user => {
       console.log(user);
-      this.loggedIn = true;
       this.userLoginFormSubmitted = false;
+      this.router.navigateByUrl("/home");
     }, (err) => {
       console.log(err);
-      this.loggedIn = false;
     });
 
   }

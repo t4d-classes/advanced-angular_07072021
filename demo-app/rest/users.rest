@@ -21,3 +21,24 @@ Content-Type: application/json
   "username": "afuller",
   "kind": "employee"
 }
+
+###
+
+POST http://student1.databots.cloud/users/login HTTP/1.1
+Content-Type: application/json
+
+{
+  "username": "afuller",
+  "password": "testpass",
+  "kind": "employee"
+}
+
+###
+
+GET http://student1.databots.cloud/employees HTTP/1.1
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VybmFtZSI6ImFmdWxsZXIiLCJkaXNwbGF5X25hbWUiOiJBbmRyZXcgRnVsbGVyIiwidXNlcl9raW5kIjoiZW1wbG95ZWUiLCJyb2xlcyI6WyJ1c2VyIiwiYWRtaW4iXSwiaXNfYWNjZXNzIjp0cnVlLCJpc19yZWZyZXNoIjpmYWxzZSwiZXhwIjoxNjI1NzU4ODg3fQ.00R6-BcmqdsPIBCOlYEa83zl3KpByPizxw05xKFSTgY
+
+###
+
+GET http://student1.databots.cloud/users/refresh HTTP/1.1
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VybmFtZSI6ImFmdWxsZXIiLCJkaXNwbGF5X25hbWUiOiJBbmRyZXcgRnVsbGVyIiwidXNlcl9raW5kIjoiZW1wbG95ZWUiLCJyb2xlcyI6WyJ1c2VyIiwiYWRtaW4iXSwiaXNfYWNjZXNzIjpmYWxzZSwiaXNfcmVmcmVzaCI6dHJ1ZSwiZXhwIjoxNjI1NzYyNTY4fQ.klBlXYgBnZUXN22FRdnOX37goVPbMsIWL_u9E1tQDWU
