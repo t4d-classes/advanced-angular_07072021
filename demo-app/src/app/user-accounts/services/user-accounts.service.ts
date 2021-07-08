@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, Observable } from 'rxjs';
 
+import { environment } from '../../../environments/environment';
+
 import { User, NewUser } from '../models/users';
 
 @Injectable({
@@ -34,10 +36,19 @@ export class UserAccountsService {
 
   public usernameAvailable(username: string) {
 
-    const url = "http://student1.databots.cloud/users/username_available"
+    const url = `${environment.apiUrl}/users/username_available`;
 
     return this.httpClient.post<boolean>(url, {
       username, kind: 'employee'
+    });
+  }
+
+  public login(username: string, password: string) {
+
+    const url = `${environment.apiUrl}/users/login`;
+
+    return this.httpClient.post<boolean>(url, {
+      username, password, kind: 'employee'
     });
   }
 }

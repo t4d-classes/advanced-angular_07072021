@@ -5,13 +5,15 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { RegisterUserComponent } from './components/register-user/register-user.component';
 import { RegisteredUsersComponent } from './components/registered-users/registered-users.component';
+import { UserLoginComponent } from './components/user-login/user-login.component';
 
 
 
 @NgModule({
   declarations: [
     RegisterUserComponent,
-    RegisteredUsersComponent
+    RegisteredUsersComponent,
+    UserLoginComponent
   ],
   imports: [
     CommonModule,
@@ -20,7 +22,8 @@ import { RegisteredUsersComponent } from './components/registered-users/register
   ],
   exports: [
     RegisterUserComponent,
-    RegisteredUsersComponent
+    RegisteredUsersComponent,
+    UserLoginComponent,
   ]
 })
 export class UserAccountsModule { }

@@ -1,0 +1,21 @@
+<h3>User Login</h3>
+
+<form [formGroup]="userLoginForm" (submit)="doUserLogin()"
+  [ngClass]="{ submitted: userLoginFormSubmitted }">
+
+  <p *ngIf="errorMessage" class="error">{{errorMessage}}</p>
+
+  <label>
+    Username
+    <input type="text" formControlName="username" />
+  </label>
+  <label>
+    Password
+    <input type="password" formControlName="password" />
+  </label>
+  <button>Login</button>
+</form>
+
+<div>
+  Logged In: {{loggedIn}}
+</div>
