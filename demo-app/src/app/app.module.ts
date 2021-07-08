@@ -9,12 +9,14 @@ import { UserAccountsModule } from './user-accounts/user-accounts.module';
 import { AuthorizationInterceptorService } from './user-accounts/services/authorization-interceptor.service';
 import { HomePageComponent } from './pages/home-page/home-page.component';
 import { LoginPageComponent } from './pages/login-page/login-page.component';
+import { UserAccountPageComponent } from './pages/user-account-page/user-account-page.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomePageComponent,
-    LoginPageComponent
+    LoginPageComponent,
+    UserAccountPageComponent
   ],
   imports: [
     BrowserModule,
