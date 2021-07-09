@@ -1,0 +1,21 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav" mode="over">
+    <mat-toolbar>Menu</mat-toolbar>
+    <mat-nav-list (click)="drawer.toggle()">
+      <a mat-list-item routerLink="/home" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Home</a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
+      <button type="button" aria-label="Toogle sidenav" mat-icon-button (click)="drawer.toggle()">
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+      <span>Demo App</span>
+      <span class="toolbar-spacer"></span>
+      Current User Here
+    </mat-toolbar>
+    <main>
+      <router-outlet></router-outlet>
+    </main>
+  </mat-sidenav-content>
+</mat-sidenav-container>

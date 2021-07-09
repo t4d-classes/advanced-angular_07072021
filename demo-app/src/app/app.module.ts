@@ -12,19 +12,34 @@ import { AuthorizationInterceptorService } from './user-accounts/services/author
 import { HomePageComponent } from './pages/home-page/home-page.component';
 import { LoginPageComponent } from './pages/login-page/login-page.component';
 import { UserAccountPageComponent } from './pages/user-account-page/user-account-page.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NavComponent } from './components/nav/nav.component';
+
+import { MatListModule } from '@angular/material/list';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomePageComponent,
     LoginPageComponent,
-    UserAccountPageComponent
+    UserAccountPageComponent,
+    NavComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     UserAccountsModule,
     CategoriesModule,
+    BrowserAnimationsModule,
+    MatListModule,
+    MatToolbarModule,
+    MatSidenavModule,
+    MatIconModule,
+    MatButtonModule,
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthorizationInterceptorService, multi: true },
