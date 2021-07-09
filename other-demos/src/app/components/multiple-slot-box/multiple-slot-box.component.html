@@ -1,8 +1,10 @@
 <div class="box">
   <header>
-    Multiple Slot Box
+    <ng-content select=".header"></ng-content>
   </header>
-  <ng-content select="[first]"></ng-content>
-  <ng-content select="[second]"></ng-content>
+  <ul>
+      <li><ng-content select="[first]"></ng-content></li>
+      <li><ng-content select="[second]"></ng-content></li>
+  </ul>
   <ng-content></ng-content>
 </div>

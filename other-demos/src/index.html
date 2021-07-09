@@ -1,4 +1,10 @@
 <!doctype html>
+<!-- <script>
+
+    console.log('top');
+    const b = window.setTimeout;
+
+  </script> -->
 <html lang="en">
 <head>
   <meta charset="utf-8">
@@ -11,3 +17,22 @@
   <app-root></app-root>
 </body>
 </html>
+<!-- <script>
+
+    const originalSetTimeout = window.setTimeout;
+
+    window.setTimeout = function newSetTimeout(fn, delay) {
+
+        originalSetTimeout(function () { 
+            fn();
+            runChangeDetection();
+        }, delay)
+
+    }
+
+    window.setTimeout(() => {
+        console.log(b === window.setTimeout); // expected value is false
+        console.log('bottom');
+    }, 2000);
+
+</script> -->

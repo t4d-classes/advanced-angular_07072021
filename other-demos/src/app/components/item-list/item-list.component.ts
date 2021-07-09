@@ -1,24 +1,24 @@
 import { Component, OnInit, Input, ChangeDetectionStrategy } from '@angular/core';
 
 @Component({
-  selector: 'app-item-list',
-  templateUrl: './item-list.component.html',
-  styleUrls: ['./item-list.component.css'],
-  changeDetection: ChangeDetectionStrategy.Default
+    selector: 'app-item-list',
+    templateUrl: './item-list.component.html',
+    styleUrls: ['./item-list.component.css'],
+    changeDetection: ChangeDetectionStrategy.Default
 })
 export class ItemListComponent implements OnInit {
 
-  @Input()
-  items: string[] = [];
+    @Input()
+    items: string[] = [];
 
-  constructor() { }
+    constructor() { }
 
-  ngOnInit(): void {
-  }
+    ngOnInit(): void {
+    }
 
-  get rendering() {
-    console.log('rendering item list');
-    return null;
-  }
+    get rendering() {
+        console.log('rendering item list');
+        return null;
+    }
 
 }
