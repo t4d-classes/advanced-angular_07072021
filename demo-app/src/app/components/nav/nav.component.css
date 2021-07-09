@@ -27,3 +27,9 @@
 main {
   margin: 20px;
 }
+
+a.toolbar-link, a.toolbar-link:visited, a.toolbar-link:active {
+  color: white;
+  font-size: 1rem;
+  text-decoration: none;
+}

@@ -151,4 +151,10 @@ export class UserAccountsService {
   public getRefreshToken() {
     return localStorage.refreshToken;
   }
+
+  public logout() {
+    this.currentUser = null;
+    this.accessToken = null;
+    localStorage.removeItem("refreshToken");
+  }
 }

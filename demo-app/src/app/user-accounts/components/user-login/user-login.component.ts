@@ -27,6 +27,9 @@ export class UserLoginComponent implements OnInit {
     private router: Router) { }
 
   ngOnInit(): void {
+
+    this.userAccountsSvc.logout();
+
     this.userLoginForm = this.fb.group({
       username: ["afuller", {
         validators: [

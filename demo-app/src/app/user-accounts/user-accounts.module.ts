@@ -7,6 +7,8 @@ import { RegisterUserComponent } from './components/register-user/register-user.
 import { RegisteredUsersComponent } from './components/registered-users/registered-users.component';
 import { UserLoginComponent } from './components/user-login/user-login.component';
 
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+
 
 
 @NgModule({
@@ -19,6 +21,7 @@ import { UserLoginComponent } from './components/user-login/user-login.component
     CommonModule,
     ReactiveFormsModule,
     HttpClientModule,
+    MatSnackBarModule,
   ],
   exports: [
     RegisterUserComponent,

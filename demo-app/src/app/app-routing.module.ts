@@ -39,6 +39,7 @@ const routes: Routes = [
     pathMatch: "full",
     redirectTo: "/admin/user-accounts",
   },
+  { path: "logout", redirectTo: "/login" },
   { path: "", pathMatch: "full", redirectTo: "/home" },
 ];
 
