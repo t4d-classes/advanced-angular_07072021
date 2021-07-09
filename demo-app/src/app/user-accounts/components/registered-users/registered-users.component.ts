@@ -1,7 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 import { User } from '../../models/users';
-import { UserAccountsService } from '../../services/user-accounts.service';
 
 @Component({
   selector: 'app-registered-users',
@@ -10,9 +9,10 @@ import { UserAccountsService } from '../../services/user-accounts.service';
 })
 export class RegisteredUsersComponent implements OnInit {
 
-  users$ = this.userAccountsSvc.all();
+  @Input()
+  users: User[] = [];
 
-  constructor(private userAccountsSvc: UserAccountsService) { }
+  constructor() { }
 
   ngOnInit(): void {
   }

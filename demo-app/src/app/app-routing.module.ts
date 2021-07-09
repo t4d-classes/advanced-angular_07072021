@@ -4,6 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AllowedRolesGuardService } from './user-accounts/services/allowed-roles-guard.service';
 import { LoggedInGuardService } from './user-accounts/services/logged-in-guard.service';
 
+import { UsersResolverService } from './user-accounts/services/users-resolver.service';
 import { CategoriesResolverService } from './categories/services/categories-resolver.service';
 
 import { HomePageComponent } from './pages/home-page/home-page.component';
@@ -25,6 +26,9 @@ const routes: Routes = [
     path: "admin/user-accounts",
     component: UserAccountPageComponent,
     canActivate: [AllowedRolesGuardService],
+    resolve: {
+      users: UsersResolverService,
+    },
     data: {
       title: "Admin User Account",
       roles: ["admin"],

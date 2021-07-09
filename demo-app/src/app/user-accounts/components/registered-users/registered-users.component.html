@@ -11,12 +11,12 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngIf="(users$ | async)!.length === 0">
+    <tr *ngIf="users.length === 0">
       <td colspan="5">
         There are no registered users.
       </td>
     </tr>
-    <tr *ngFor="let user of users$ | async">
+    <tr *ngFor="let user of users">
       <td>{{user.id}}</td>
       <td>{{user.username}}</td>
       <td>{{user.firstName}}</td>

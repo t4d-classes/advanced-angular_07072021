@@ -6,6 +6,7 @@ import { tap, map } from 'rxjs/operators';
 import { environment } from '../../../environments/environment';
 
 import { User, NewUser } from '../models/users';
+import { Employee } from '../models/employees';
 import { UserRefresh } from '../models/UserRefresh';
 import { UserResult } from '../models/UserResult';
 import { CurrentUser } from '../models/CurrentUser';
@@ -22,8 +23,35 @@ export class UserAccountsService {
 
   constructor(private httpClient: HttpClient) { }
 
+  get employeeUrl() {
+    return `${environment.apiUrl}/employees`;
+  }
+
   all() {
-    return this.users;
+    return this.httpClient.get<Employee[]>(this.employeeUrl).pipe(map(employees => {
+
+      // returning the array of users
+      return employees.reduce((users: User[], employee: Employee) => {
+
+        // find users and add them to the array
+
+        if (employee.username) {
+          users.push({
+            id: employee.employeeId,
+            username: employee.username,
+            firstName: employee.firstName,
+            lastName: employee.lastName,
+            title: employee.title,
+          });
+        }
+
+        // return back the accumulator to use on the next iteration
+        return users;
+
+      }, [] /* initial empty array of user */);
+
+
+    }))
   }
 
   append(user: NewUser) {
