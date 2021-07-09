@@ -1,0 +1,9 @@
+<h2>View Child</h2>
+
+<input type="text" [(ngModel)]="message" required #messageInput="ngModel" />
+
+<div>{{messageInput.valid}}</div>
+
+<div>
+  <button (click)="clickMe()">Click Me</button>
+</div>

@@ -1,0 +1,10 @@
+<h2>Color List</h2>
+
+<app-item-list [items]=colors></app-item-list>
+
+<form (submit)="addColor()">
+  <label>
+    New Color: <input type="text" [formControl]="newColorInput" />
+  </label>
+  <button>Add Color</button>
+</form>

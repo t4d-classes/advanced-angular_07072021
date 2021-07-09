@@ -1,0 +1,22 @@
+<h2>Content Sanitation Demo</h2>
+
+<div>
+  {{someContent}}
+</div>
+
+<div [innerHtml]="someContent">
+</div>
+
+<div>
+  <a href="javascript:alert(0);">Click Me!</a>
+</div>
+
+<div>
+  <a [href]="clickMeUrl">Click Me!</a>
+</div>
+
+<div>
+  <a [href]="clickMeUrlSafe">Click Me!</a>
+</div>
+
+
