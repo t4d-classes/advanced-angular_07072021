@@ -1,4 +1,5 @@
 <h2>User Accounts</h2>
 
 <app-registered-users [users]="users"></app-registered-users>
-<app-register-user></app-register-user>
+<app-register-user
+  (submitForm)="doAddUserAndRefreshUsers($event)"></app-register-user>

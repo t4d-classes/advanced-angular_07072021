@@ -56,17 +56,41 @@ export class UserAccountsService {
 
   append(user: NewUser) {
 
-    let users = this.users.value;
+    return this.httpClient.post<Employee>(this.employeeUrl, {
+      lastName: user.lastName,
+      firstName: user.firstName,
+      title: user.title,
+      titleOfCourtesy: '',
+      birthDate: '12/31/2000',
+      hireDate: '12/31/2000',
+      address: '',
+      city: '',
+      region: '',
+      postalCode: '',
+      country: '',
+      homePhone: '',
+      extension: '',
+      photo: '',
+      notes: '',
+      reportsTo: 5,
+      photoPath: '',
+      username: user.username,
+      password: '',
+    })
+      .pipe(map(employee => ({
+        id: employee.employeeId,
+        username: employee.username,
+        firstName: employee.firstName,
+        lastName: employee.lastName,
+        title: employee.title,
+      } as User)))
 
-    users = [
-      ...users,
-      {
-        ...user,
-        id: Math.max(...users.map(u => u.id), 0) + 1,
-      },
-    ];
+  }
 
-    this.users.next(users);
+  setPassword(username: string, newPassword: string) {
+    return this.httpClient.post<void>(`${environment.apiUrl}/users/set-password`, {
+      username, newPassword, userKind: 'employee',
+    });
   }
 
   public usernameAvailable(username: string) {

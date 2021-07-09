@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
-import { NewUser } from '../../models/users';
+import { RegisterUserForm } from '../../models/users';
 import { UserAccountsService } from '../../services/user-accounts.service';
 import { usernameAvailableValidator } from '../../validators/usernameAvailableValidator';
 import { valueNotMatchValidator } from '../../validators/valueNotMatchValidator';
@@ -12,6 +12,9 @@ import { valueNotMatchValidator } from '../../validators/valueNotMatchValidator'
   styleUrls: ['./register-user.component.css']
 })
 export class RegisterUserComponent implements OnInit {
+
+  @Output()
+  submitForm = new EventEmitter<RegisterUserForm>();
 
   public registerUserForm!: FormGroup;
   public errorMessage = "";
@@ -33,6 +36,7 @@ export class RegisterUserComponent implements OnInit {
           usernameAvailableValidator(this.userAccountsSvc),
         ]
       }],
+      password: "",
       firstName: "",
       lastName: "",
       title: "",
@@ -86,7 +90,8 @@ export class RegisterUserComponent implements OnInit {
   public doRegisterUser() {
     this.registerUserFormSubmitted = true;
     if (!this.validateRegisterUserForm()) return;
-    this.userAccountsSvc.append(this.registerUserForm.value as NewUser);
+    this.submitForm.emit(this.registerUserForm.value as RegisterUserForm);
+    // this.userAccountsSvc.append(this.registerUserForm.value as NewUser);
     this.registerUserFormSubmitted = false;
   }
 
